@@ -84,17 +84,7 @@ class GetStartedState(State):
                                     'type': 'postback',
                                     'title': 'Minsk',
                                     'payload': msg.MINSK
-                                },
-                                {
-                                    'type': 'postback',
-                                    'title': 'Vitebsk',
-                                    'payload': msg.VITEBSK
-                                },
-                                {
-                                    'type': 'postback',
-                                    'title': 'Mogilev',
-                                    'payload': msg.MOGILEV
-                                },
+                                }
                             ]
                         }
                     ]

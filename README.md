@@ -65,11 +65,11 @@ chmod a+x pre-commit && cp pre-commit .git/hooks
 python manage.py set_bot_profile
 ```
 
-<!-- 
+
 ### Create docker image with python dependencies
 
 ```.env
 docker login
 docker build -t cldntm/bot:{version} -f bitbucket-pipelines.dockerfile .
 docker push cldntm/bot:{version}
-``` -->
+```

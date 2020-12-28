@@ -8,7 +8,7 @@ import requests
 
 from fb_chatbot.facebook_api_properties import SET_PROPERTIES, DELETE_PROPERTIES
 
-ENDPOINT = 'https://graph.facebook.com/v3.2'
+ENDPOINT = 'https://graph.facebook.com/v3.3'
 PAGE_ACCESS_TOKEN = os.environ['BOT_PAGE_ACCESS_TOKEN']
 
 

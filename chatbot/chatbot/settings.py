@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     *APPS,
     'django.contrib.admin',
-    'django_extensions',
 ]
 
 AUTH_USER_MODEL = 'payment.User'

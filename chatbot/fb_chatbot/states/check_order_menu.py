@@ -28,11 +28,6 @@ class CheckOrderMenuState(State):
             message = StartOrderState.get_main_menu_msg(menu_types)
         elif msg.REMOVE_ITEM in fb_msg:
             message, state = self.process_remove_item_button(fb_msg)
-        elif fb_msg == msg.CHECKOUT:
-            message = self.get_checkout_msg()
-        elif fb_msg == msg.HOME:
-            state = GetStartedState.__name__
-            message = self.process_cancel_order_button()
         elif fb_msg == msg.CANCEL_ORDER:
             state = GetStartedState.__name__
             message = self.process_cancel_order_button()
@@ -98,13 +93,8 @@ class CheckOrderMenuState(State):
                                     'url': webview_url,
                                     'messenger_extensions': 'true',
                                     'webview_height_ratio': 'compact',
-                                    'title': 'Registration',
+                                    'title': 'Check out online',
                                     'payload': msg.ADD_MORE_ITEMS
-                                },
-                                {
-                                    'type': 'postback',
-                                    'title': 'Check out',
-                                    'payload': msg.CHECKOUT
                                 },
                                 {
                                     'type': 'postback',
@@ -146,28 +136,3 @@ class CheckOrderMenuState(State):
             ]
         }
         return items
-
-    @staticmethod
-    def get_checkout_msg():
-        checkout = {
-            'attachment': {
-                'type': 'template',
-                'payload': {
-                    'template_type': 'generic',
-                    'elements': [
-                        {
-                            'title': 'Congratulations, you paid for the order, our operator will contact you shortly!',
-                            'subtitle': 'We have the right hat for everyone!',
-                            'buttons': [
-                                {
-                                    'type': 'postback',
-                                    'title': 'Go Home',
-                                    'payload': msg.HOME
-                                }
-                            ]
-                        }
-                    ]
-                }
-            }
-        }
-        return checkout

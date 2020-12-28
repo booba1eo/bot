@@ -228,6 +228,13 @@ class Order(models.Model):
         db_index=True
     )
 
+    # customer = models.ForeignKey(
+    #     'payment.Customer',
+    #     on_delete=models.CASCADE,
+    #     null=True,
+    #     db_index=True
+    # )
+
     created = models.DateTimeField(auto_now_add=True)
 
 

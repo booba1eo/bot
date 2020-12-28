@@ -7,4 +7,4 @@ START_ORDER_STATE_NAME = 'StartOrderState'
 SELECT_ITEM_STATE_NAME = 'SelectItemMenuState'
 CHECK_ORDER_MENU_STATE_NAME = 'CheckOrderMenuState'
 
-LOCATION_IMAGE_URL = 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_location_on_48px-512.png' # noqa
+LOCATION_IMAGE_URL = 'https://imageog.flaticon.com/icons/png/512/64/64113.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF' # noqa
