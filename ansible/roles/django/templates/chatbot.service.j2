@@ -1,0 +1,15 @@
+[Unit]
+Description=uWSGI bot backend service
+StartLimitIntervalSec=11
+
+[Service]
+Restart=on-failure
+WorkingDirectory={{ app_remote_dir }}
+EnvironmentFile=/etc/environment
+ExecStart={{ venv_dir }}/bin/uwsgi --ini {{ uwsgi_ini_file }}
+RestartSec=2
+StartLimitBurst=5
+User={{ ansible_user }}
+
+[Install]
+WantedBy=multi-user.target

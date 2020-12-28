@@ -1,0 +1,29 @@
+# Copyright (c) 2019 Celadon Development LLC, All rights reserved.
+# Author Alexander Drozdov <alexander.drozdov@celadon.ae>
+
+---
+- name: install apt packages
+  apt:
+    name:
+      - software-properties-common
+    update_cache: true
+    state: present
+
+- name: add apt repository certbot
+  apt_repository:
+    repo: ppa:certbot/certbot
+    state: present
+
+- name: install apt packages for certbot
+  apt:
+    name:
+      - certbot
+      - python-certbot-nginx
+    update_cache: true
+    state: present
+
+- name: Setup certbot for nginx
+  command: certbot --nginx -n --agree-tos -m {{ certbot_email }} -d {{ certbot_domains }}
+
+- name: Setup ssl updating
+  command: certbot renew --dry-run

@@ -1,0 +1,9 @@
+ansible==2.8.0
+dopy==0.3.7
+coverage==4.5.3
+flake8==3.7.7
+crlint
+twine==1.13.0
+pylint==2.3.1
+pylint-django==2.0.9
+factory-boy==2.12.0

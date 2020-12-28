@@ -1,0 +1,4 @@
+recursive-include fb-chatbot/management *
+recursive-include payment/management *
+recursive-include payment/templates *
+recursive-include payment/static *

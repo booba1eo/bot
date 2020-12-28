@@ -1,0 +1,23 @@
+# Copyright (c) 2019 Celadon Development LLC, All rights reserved.
+# Author Alexander Drozdov <alexander.drozdov@celadon.ae>
+
+---
+- name: Push uwsgi.ini file
+  template:
+    src: "{{ uwsgi_ini_file_template }}"
+    dest: "{{ app_remote_dir }}/{{ uwsgi_ini_file }}"
+
+- name: Create log dir
+  become: yes
+  file:
+    state: directory
+    path: /var/log/uwsgi
+    group: "{{ ansible_user }}"
+    owner: "{{ ansible_user }}"
+
+- name: Push systemd file
+  become: yes
+  template:
+    src: "{{ service_file_template }}"
+    dest: "/etc/systemd/system/{{ service_file }}"
+    mode: 770

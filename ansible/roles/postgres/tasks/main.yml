@@ -1,0 +1,11 @@
+# Copyright (c) 2019 Celadon Development LLC, All rights reserved.
+# Author Alexander Drozdov <alexander.drozdov@celadon.ae>
+
+---
+- include: install_packages.yml
+- include: setup_postgres.yml
+- include: setup_user_data.yml
+
+
+
+

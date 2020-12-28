@@ -1,0 +1,11 @@
+[uwsgi]
+chdir           = {{ venv_dir }}/lib/{{ python_version }}/site-packages/{{ app_name }}
+module          = {{ app_name }}.wsgi:application
+home            = {{ venv_dir }}
+master          = true
+processes       = 1
+socket          = {{ app_remote_dir }}/{{ app_name }}.sock
+chmod-socket    = 666
+vacuum          = true
+http-socket	    = {{ remote_app_host }}:{{ remote_app_port }}
+user		    = {{ ansible_user }}

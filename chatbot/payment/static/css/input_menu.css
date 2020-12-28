@@ -1,0 +1,94 @@
+/* Copyright (c) 2019 Celadon Development LLC, All rights reserved. */
+/* Author Hleb Serafimovich <hleb.serafimovich@celadon.ae> */
+
+.input-menu {
+    display: flex;
+    height: 70%;
+    flex-direction: column;
+}
+
+.input-menu__title {
+    align-self: center;
+}
+
+.input-menu__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-menu__form-label {
+    display: block;
+    padding-bottom: 2px;
+    padding-top: 10px;
+}
+
+.input-menu__form-input {
+    display: block;
+    width: 250px;
+    height: 25px;
+    border: 1px solid rgb(53, 61, 69);
+    border-radius: 5px;
+}
+
+.input-menu__form-select {
+    display: block;
+    width: 250px;
+    height: 30px;
+    border: 1px solid rgb(53, 61, 69);
+    border-radius: 5px;
+}
+
+.input-menu__checkbox {
+    margin-top: 5%;
+    flex-direction: row;
+}
+
+.input-menu__checkbox-label {
+    display: flex;
+    width: 250px;
+    align-items: center;
+}
+
+.input-menu__checkbox-input[type=checkbox] {
+    margin: 0;
+    width: 20px;
+    margin-right: 8px;
+}
+
+.input-menu__form-error {
+    color: red;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.input-menu__register-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    width: 100%;
+    height: 35px;
+    margin-top: 8px;
+    border: 0;
+    background-color: rgb(128, 128, 128);
+    border-radius: 15px;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.input-menu__submit-btn {
+    width: 100%;
+    height: 35px;
+    margin-top: 20px;
+    font-size: 12px;
+    border: 0;
+    background-color: rgb(53, 61, 69);
+    border-radius: 15px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.input-menu__submit-btn[disabled]{
+    color:white;
+}

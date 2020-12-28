@@ -1,0 +1,14 @@
+# Copyright (c) 2019 Celadon Development LLC, All rights reserved.
+# Author Alexander Drozdov <alexander.drozdov@celadon.ae>
+
+---
+app_name: "{{ lookup('env', 'BOT_PROJECT_NAME') }}"
+remote_app_host: "{{ lookup('env', 'BOT_REMOTE_APP_HOST') }}"
+remote_app_port: "{{ lookup('env', 'BOT_REMOTE_APP_PORT') }}"
+remote_host: "{{ lookup('env', 'BOT_REMOTE_HOST') }}"
+remote_port: "{{ lookup('env', 'BOT_REMOTE_PORT') }}"
+domain: devel.bot.celadon.ae
+static_dir: "{{ lookup('env', 'BOT_STATIC_ROOT') }}"
+
+nginx_conf_file: '{{ app_name }}.conf'
+nginx_conf_template: '{{ nginx_conf_file }}.j2'

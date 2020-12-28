@@ -1,0 +1,36 @@
+/* Copyright (c) 2019 Celadon Development LLC, All rights reserved. */
+/* Author Hleb Serafimovich <hleb.serafimovich@celadon.ae> */
+
+body {
+    margin: 0;
+    font-family: sans-serif ;
+}
+
+.main {
+    display: flex;
+    height: 100vh;
+    min-height: 600px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 8%;
+    background-color: rgb(53, 61, 69);
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.header__title-txt {
+    align-self: center;
+    color: white;
+}

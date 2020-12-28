@@ -1,0 +1,61 @@
+# Copyright (c) 2019 Celadon Development LLC, All rights reserved.
+# Author Alexander Drozdov <alexander.drozdov@celadon.ae>
+
+image: cldntm/bot:0.3
+
+pipelines:
+  default:
+    - step: &linter
+        name:  linter
+        script:
+          - flake8
+    - step: &copyrights
+        name: lint copyrights
+        script:
+          - crlint
+    - step: &tests
+        name: python tests
+        services:
+          - postgres
+        script:
+          - cd $BOT_PROJECT_NAME
+          - pip install .
+          - ./manage.py test
+    - step: &coverage
+        name: Check coverage
+        services:
+          - postgres
+        script:
+          - cd $BOT_PROJECT_NAME
+          - pip install .
+          - coverage run manage.py test fb_chatbot
+          - coverage report --fail-under=70
+  branches:
+    main:
+      - step: *linter
+      - step: *copyrights
+      - step: *tests
+      - step: *coverage
+      - step: &upload
+          name: Upload pypi
+          script:
+            - cd $BOT_PROJECT_NAME
+            - python setup.py sdist bdist_wheel
+            - twine upload --repository-url https://$BOT_PYPI_REPO_USERNAME:$BOT_PYPI_REPO_PASSWORD@$BOT_PYPI_REPO_URL -u $BOT_PYPI_REPO_USERNAME -p $BOT_PYPI_REPO_PASSWORD dist/*
+      - step: &deploy
+          name: Deploy
+          deployment: test
+          script:
+            - cd ansible
+            - ansible-playbook deploy-playbook.yml -i get_hosts.py
+    devel:
+      - step: *linter
+      - step: *copyrights
+      - step: *tests
+      - step: *coverage
+      - step: *upload
+      - step: *deploy
+definitions:
+  services:
+    postgres:
+      image: postgres:11

@@ -1,0 +1,33 @@
+# Copyright (c) 2019 Celadon Development LLC, All rights reserved.
+# Author Alexander Drozdov <alexander.drozdov@celadon.ae>
+
+---
+- name: Create project dir
+  file:
+    path: "{{ app_remote_dir }}"
+    state: directory
+    recurse: yes
+
+- name: Install project from pypi
+  pip:
+    name: "https://{{ pypi_username }}:{{ pypi_password }}@{{ pypi_repo_url }}/packages/{{ app_name }}-{{ pypi_version_to_load }}.tar.gz"
+    virtualenv: "{{ venv_dir }}"
+
+- name: Apply migrations
+  django_manage:
+    app_path: "{{ venv_dir }}/bin"
+    command: "migrate"
+    virtualenv: "{{ venv_dir }}"
+
+- name: Collect static files
+  django_manage:
+    app_path: "{{ venv_dir }}/bin"
+    command: "collectstatic"
+    virtualenv: "{{ venv_dir }}"
+
+- name: Create super user
+  django_manage:
+    app_path: "{{ venv_dir }}/bin"
+    command: "createadmin --username={{ admin_username }} --email={{ admin_email }} --password={{ admin_password }}"
+    virtualenv: "{{ venv_dir }}"
+  ignore_errors: yes

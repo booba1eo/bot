@@ -1,0 +1,12 @@
+max_connections = {{ db_max_connections }}
+shared_buffers ={{ (db_total_memory*0.25)|int*1024 }}MB
+effective_cache_size = {{ (db_total_memory*0.75)|int*1024 }}MB
+maintenance_work_mem = {{ (db_total_memory)|int*64 }}MB
+checkpoint_completion_target = 0.7
+wal_buffers = 16MB
+default_statistics_target = 100
+random_page_cost = 1.1
+effective_io_concurrency = 200
+work_mem = {{ ((((db_total_memory)|int)*0.25)/db_max_connections)|round|int }}MB
+min_wal_size = 1GB
+max_wal_size = 2GB

@@ -1,0 +1,27 @@
+# Copyright (c) 2019 Celadon Development LLC, All rights reserved.
+# Author Alexander Drozdov <alexander.drozdov@celadon.ae>
+
+---
+- name: stop nginx
+  service:
+    name: nginx
+    state: stopped
+
+- name: Push nginx config
+  template:
+    src: "{{ nginx_conf_template }}"
+    dest: "/etc/nginx/sites-enabled/{{ nginx_conf_file }}"
+
+- name: start nginx
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+
+- include_role:
+    name: ssl-cert
+#
+#- name: reload nginx
+#  service:
+#    name: nginx
+#    state: restarted

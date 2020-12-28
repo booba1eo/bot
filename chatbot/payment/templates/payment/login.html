@@ -1,0 +1,32 @@
+<!-- Copyright (c) 2019 Celadon Development LLC, All rights reserved. -->
+<!-- Author Hleb Serafimovich <hleb.serafimovich@celadon.ae> -->
+
+{% extends 'payment/base.html' %}
+{% load static %}
+
+{% block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/input_menu.css' %}">
+{% endblock%}
+
+{% block header %}
+    <h1 class="header__title-txt">BSUIR BURGERS</h1>
+{% endblock %}
+
+{% block content %}
+<div class="input-menu">
+    <h3 class="input-menu__title"> Login </h3>
+    <form method="POST" class="input-menu__form">
+        {% csrf_token %}
+        {% for field in form %}
+            <label class="input-menu__form-label">{{ field.label_tag }}</label>
+            {{ field }}
+        {% endfor %}
+        {% if login_error %}
+            <label class="input-menu__form-error">{{ login_error }}</label>
+        {% endif %}
+        <button type="submit" class="input-menu__submit-btn">login</button>
+        <a href="{% url 'payment:registration' %}"  class="input-menu__register-btn">registration</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!-- Copyright (c) 2019 Celadon Development LLC, All rights reserved. -->
+<!-- Author Hleb Serafimovich <hleb.serafimovich@celadon.ae> -->
+
+{% extends 'payment/base.html' %}
+{% load static %}
+
+{% block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/home_page.css' %}">
+{% endblock%}
+
+{% block header %}
+    <h1 class="header__title-txt">BSUIR BURGERS {{ psid }}</h1>
+    <a href="{% url 'payment:logout' %}" class="header__btn" >logout</a>
+{% endblock %}
+
+{% block content %}
+<div class="payment-getway">
+    <h3>payment</h3>
+</div>
+{% endblock %}

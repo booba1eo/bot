@@ -1,0 +1,44 @@
+# Copyright (c) 2019 Celadon Development LLC, All rights reserved.
+# Author Alexander Drozdov <alexander.drozdov@celadon.ae>
+
+---
+# app
+app_name: "{{ lookup('env', 'BOT_PROJECT_NAME') }}"
+app_version: "{{ lookup('env', 'BOT_VERSION') or lookup('env', 'BITBUCKET_COMMIT') }}"
+
+# pypi
+pypi_version_to_load: "{{ lookup('env', 'BOT_PYPI_VERSION_TO_LOAD') or lookup('env', 'BITBUCKET_COMMIT') }}"
+pypi_username: "{{ lookup('env', 'BOT_PYPI_REPO_USERNAME') }}"
+pypi_password: "{{ lookup('env', 'BOT_PYPI_REPO_PASSWORD') }}"
+pypi_repo_url: "{{ lookup('env', 'BOT_PYPI_REPO_URL') }}"
+
+# remote
+app_remote_name: "{{ app_name }}-{{ app_version }}"
+app_remote_dir: "{{ remote_home }}/{{ app_remote_name }}"
+remote_home: "/{{ ansible_user }}"
+remote_app_host: "{{ lookup('env', 'BOT_REMOTE_APP_HOST') }}"
+remote_app_port: "{{ lookup('env', 'BOT_REMOTE_APP_PORT') }}"
+
+# local
+app_root_dir: "{{ lookup('env', 'BOT_ROOT_DIR') }}"
+app_local_dir: "{{ lookup('env', 'BOT_BASE_DIR') }}"
+build_dir: "{{ app_root_dir }}/ansible/roles/deploy/build/"
+local_user: celadon
+
+# venv
+venv_dir: "{{ app_remote_dir }}/venv"
+python_version: python3.6
+venv_python: '{{ venv_dir }}"/bin/"{{ python_version }}"'
+
+
+# django
+static_dir: "{{ lookup('env', 'BOT_STATIC_ROOT') }}"
+admin_username: "{{ lookup('env', 'BOT_ADMIN_USERNAME') }}"
+admin_password: "{{ lookup('env', 'BOT_ADMIN_PASSWORD') }}"
+admin_email: "{{ lookup('env', 'BOT_ADMIN_EMAIL') }}"
+
+# templates
+service_file: "{{ app_name }}.service"
+service_file_template: "{{ service_file }}.j2"
+uwsgi_ini_file: "{{ app_name }}.ini"
+uwsgi_ini_file_template: "{{ uwsgi_ini_file }}.j2"

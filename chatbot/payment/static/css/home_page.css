@@ -1,0 +1,24 @@
+/* Copyright (c) 2019 Celadon Development LLC, All rights reserved. */
+/* Author Hleb Serafimovich <hleb.serafimovich@celadon.ae> */
+
+.header__btn {
+    position: absolute;
+    align-self: center;
+    margin-left: 45%;
+    border: 0;
+    background-color: rgb(53, 61, 69);
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-decoration: none
+}
+
+
+.payment-getway {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    background-color: aqua;
+}

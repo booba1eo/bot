@@ -1,0 +1,12 @@
+# Copyright (c) 2019 Celadon Development LLC, All rights reserved.
+# Author Alexander Drozdov <alexander.drozdov@celadon.ae>
+
+---
+- name: daemon-reload
+  become: yes
+  systemd:
+    daemon_reload: yes
+
+- name: start app service
+  service: name={{ app_name }} state=started enabled=yes
+  become: yes

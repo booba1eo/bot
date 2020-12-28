@@ -1,0 +1,2 @@
+[ignore]
+patterns=*.json, *.txt, *venv*, *migrations*, *__init__.py*,, **manage.py, *settings*, *wsgi.py*

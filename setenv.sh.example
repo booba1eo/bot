@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# DJANGO
+export BOT_DEBUG=True
+
+#FACEBOOK
+export BOT_PAGE_ACCESS_TOKEN=EAAEj64NiKZCoBAGhXfJUPkRDb9NV3VZCF15C2yjfWL3GMFvdaCpP4KIwAoOdGWOOAoznCWSLSBAuDc7SKIjvvZCxoi0eFs6RCE4PFInrUEcXaTeQawf3vDzwCGf9PuI5VbYdu3PdRmmT6X3BwNx3G9IgHCvyqOAeC6Aqyi0jOJk32zT3ViW
+export BOT_SECRET_KEY="+prnlgz@a*l2-j9!56qzd0_i-%@h+1o)ix@2-8vov$m0-q+4i"
+export BOT_VERIFY_TOKEN=1234567890
+export BOT_WEBVIEW_DOMAIN=https://devel.bot.celadon.ae
+
+# HOSTS
+export BOT_ALLOWED_HOSTS=*
+
+# DATABASE
+export BOT_DB_NAME=postgres
+export BOT_DB_USER=postgres
+export BOT_DB_PASSWORD=mysecretpassword
+export BOT_DB_HOST=localhost
+export BOT_DB_PORT=5432
+export BOT_POSTGRES_VERSION=11
+
+export BOT_VERSION=$(date +%s)-local
+export BOT_STATIC_ROOT=/var/www/
+export BOT_DEBUG=TRUE
+export BOT_PROJECT_NAME=chatbot
+export BOT_ROOT_DIR=`pwd`
+export BOT_BASE_DIR=${BOT_ROOT_DIR}/${BOT_PROJECT_NAME}
+export BOT_ADMIN_USERNAME=admin
+export BOT_ADMIN_PASSWORD=admin
+export BOT_ADMIN_EMAIL=admin@email.ae
+
+# REMOTE SERVER
+export BOT_REMOTE_APP_HOST=127.0.0.1
+export BOT_REMOTE_APP_PORT=8001
+export BOT_REMOTE_HOST=devel.bot.celadon.ae
+export BOT_REMOTE_PORT=80
+export BOT_TARGET_TAG=bot-bot
+
+# DIGITAL OCEAN
+export BOT_DO_API_KEY=
+
+# PYPI
+export BOT_PYPI_REPO_URL=pypi.it-crowd.celadon.ae
+export BOT_PYPI_REPO_PASSWORD=
+export BOT_PYPI_REPO_USERNAME=celadon
+export BOT_PYPI_VERSION_TO_LOAD=1560412849-local

@@ -1,0 +1,19 @@
+# Copyright (c) 2019 Celadon Development LLC, All rights reserved.
+# Author Alexander Drozdov <alexander.drozdov@celadon.ae>
+
+---
+- name: Create db for app
+  become: yes
+  become_user: postgres
+  postgresql_db:
+    name: "{{ db_name }}"
+
+- name: Create postgres user for app
+  become: yes
+  become_user: postgres
+  postgresql_user:
+    name: "{{ db_user }}"
+    password: "{{ db_password }}"
+    role_attr_flags: NOSUPERUSER,CREATEDB
+    priv: ALL
+    db: "{{ db_name }}"
